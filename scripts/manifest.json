@@ -1,0 +1,149 @@
+{
+  "01": [
+    {
+      "file": "01-01.webp",
+      "web": "/images/work/01/01-01.webp",
+      "kb": 1509
+    },
+    {
+      "file": "01-02.webp",
+      "web": "/images/work/01/01-02.webp",
+      "kb": 452
+    },
+    {
+      "file": "01-03.webp",
+      "web": "/images/work/01/01-03.webp",
+      "kb": 460
+    },
+    {
+      "file": "01-04.webp",
+      "web": "/images/work/01/01-04.webp",
+      "kb": 840
+    },
+    {
+      "file": "01-05.jpg",
+      "web": "/images/work/01/01-05.jpg",
+      "kb": 94
+    }
+  ],
+  "02": [
+    {
+      "file": "02-01.webp",
+      "web": "/images/work/02/02-01.webp",
+      "kb": 2792
+    },
+    {
+      "file": "02-02.webp",
+      "web": "/images/work/02/02-02.webp",
+      "kb": 295
+    },
+    {
+      "file": "02-03.webp",
+      "web": "/images/work/02/02-03.webp",
+      "kb": 623
+    }
+  ],
+  "03": [
+    {
+      "file": "03-01.png",
+      "web": "/images/work/03/03-01.png",
+      "kb": 43
+    },
+    {
+      "file": "03-02.webp",
+      "web": "/images/work/03/03-02.webp",
+      "kb": 3316
+    },
+    {
+      "file": "03-03.webp",
+      "web": "/images/work/03/03-03.webp",
+      "kb": 3009
+    },
+    {
+      "file": "03-04.webp",
+      "web": "/images/work/03/03-04.webp",
+      "kb": 625
+    },
+    {
+      "file": "03-05.webp",
+      "web": "/images/work/03/03-05.webp",
+      "kb": 944
+    },
+    {
+      "file": "03-06.webp",
+      "web": "/images/work/03/03-06.webp",
+      "kb": 3471
+    },
+    {
+      "file": "03-07.webp",
+      "web": "/images/work/03/03-07.webp",
+      "kb": 2661
+    }
+  ],
+  "04": [
+    {
+      "file": "04-01.gif",
+      "web": "/images/work/04/04-01.gif",
+      "kb": 1368
+    },
+    {
+      "file": "04-02.png",
+      "web": "/images/work/04/04-02.png",
+      "kb": 43
+    }
+  ],
+  "covers": [],
+  "about": [],
+  "archive": [
+    {
+      "file": "arch-01.webp",
+      "web": "/images/archive/arch-01.webp",
+      "kb": 99
+    },
+    {
+      "file": "arch-02.webp",
+      "web": "/images/archive/arch-02.webp",
+      "kb": 56
+    },
+    {
+      "file": "arch-03.webp",
+      "web": "/images/archive/arch-03.webp",
+      "kb": 104
+    },
+    {
+      "file": "arch-04.webp",
+      "web": "/images/archive/arch-04.webp",
+      "kb": 74
+    },
+    {
+      "file": "arch-05.webp",
+      "web": "/images/archive/arch-05.webp",
+      "kb": 172
+    },
+    {
+      "file": "arch-06.gif",
+      "web": "/images/archive/arch-06.gif",
+      "kb": 1306
+    },
+    {
+      "file": "arch-07.webp",
+      "web": "/images/archive/arch-07.webp",
+      "kb": 47
+    },
+    {
+      "file": "arch-08.webp",
+      "web": "/images/archive/arch-08.webp",
+      "kb": 152
+    },
+    {
+      "file": "arch-09.webp",
+      "web": "/images/archive/arch-09.webp",
+      "kb": 1174
+    },
+    {
+      "file": "arch-10.webp",
+      "web": "/images/archive/arch-10.webp",
+      "kb": 46
+    }
+  ]
+}

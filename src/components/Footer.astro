@@ -1,0 +1,70 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <p class="footer-copy text-12">© {year} Morfeo</p>
+  <ul class="footer-links">
+    <li>
+      <a href="mailto:francesca.r.antonucci@gmail.com" class="text-12">Email</a>
+    </li>
+    <li>
+      <a
+        href="https://www.linkedin.com/in/francesca-antonucci-7693083a9"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-12">LinkedIn</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://www.instagram.com/m0rfe0_"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-12">Instagram</a
+      >
+    </li>
+  </ul>
+</footer>
+
+<style>
+  .footer {
+    padding: 28px 32px 52px 32px;
+    display: flex;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    align-items: center;
+    background-color: var(--color-bg);
+    justify-content: space-between;
+    border-top: 1px solid rgba(27, 28, 29, 0.08);
+  }
+
+  .footer-copy {
+    color: var(--color-muted);
+    font-family: var(--font-body);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-links a {
+    font-family: var(--font-body);
+    color: var(--color-muted);
+    transition: color 0.2s ease;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 640px) {
+    .footer {
+      padding: 28px 32px 52px 32px;
+      align-items: ce;
+      gap: 16px;
+    }
+  }
+</style>

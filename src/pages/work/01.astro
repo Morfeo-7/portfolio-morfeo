@@ -1,0 +1,372 @@
+---
+import Base from "../../layouts/Base.astro";
+---
+
+<Base title="Visioni della Mente" showFooter={false} dark={true}>
+  <article class="project">
+    <!-- ── Main grid: cards left / hero right ── -->
+    <div class="project-grid">
+      <!-- Left: stacked bordered cards -->
+      <div class="project-cards">
+        <div class="card card--tag">
+          <span>(EDITORIAL DESIGN / PUBLISHING PROJECT)</span>
+        </div>
+
+        <div class="card card--title">
+          <h1 class="project-title">Visioni della Mente</h1>
+          <div class="project-subtitle">
+            <p>
+              la frattura dell'Io: indagine filosofica e artistica nel cinema
+              contemporaneo.
+            </p>
+          </div>
+        </div>
+
+        <div class="card card--body">
+          <p>
+            This thesis explores cinema as a space where reality fractures and
+            the self becomes unstable, fragmented, and uncertain. Through images
+            and sounds that blur the line between dream and nightmare, cinema is
+            treated as a critical tool to investigate the human mind, memory,
+            trauma, and technology. More than entertainment, film becomes a
+            philosophical laboratory that questions identity, perception, and
+            subjectivity. Combining theoretical research with visual
+            experimentation, editorial design, typography, imagery, and short
+            films, the project invites the viewer to confront the fragility and
+            multiplicity of the contemporary self.
+          </p>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="card card--tag">
+          <span>THESIS EDITION</span>
+        </div>
+
+        <div class="card card--body card--upper">
+          <p>
+            In addition to the editorial work of the written thesis, the project
+            also includes a book presenting the practical part.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right: hero image -->
+      <div class="project-hero">
+        <img src="/images/work/01/01-01.webp" alt="Visioni della Mente" />
+      </div>
+    </div>
+
+    <!-- ── Bottom gallery ── -->
+    <div class="project-gallery">
+      <img
+        src="/images/work/01/null.webp"
+        alt="Visioni della Mente — 2"
+        loading="lazy"
+      />
+      <img
+        src="/images/work/01/null.webp"
+        alt="Visioni della Mente — 3"
+        loading="lazy"
+      />
+      <img
+        src="/images/work/01/01-04.webp"
+        alt="Visioni della Mente — 4"
+        loading="lazy"
+        class="img-4"
+      />
+      <img
+        src="/images/work/01/01-05.webp"
+        alt="Visioni della Mente — 5"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Second section -->
+
+    <div class="project-grid">
+      <!-- Left: stacked bordered cards -->
+      <div class="project-cards">
+        <div class="card card--tag">
+          <span>Short Film Projects (Practical Thesis Project)</span>
+        </div>
+
+        <div class="card card--title">
+          <h1 class="project-title">Cruel Creatures</h1>
+        </div>
+
+        <div class="card card--body">
+          <p>
+            No one laughs; the game is never innocent, and freedom is only a
+            fragile illusion. Figures move through suspended gardens, sterile
+            rooms, pristine forests, and living rooms turned display cases.
+            Every gesture carries weight, every action is observed, measured,
+            judged. Masks are not ornaments but deforming mirrors, revealing
+            hidden power, concealed violence, and the cruelty that hides within
+            kindness. These shorts show a world suspended between what we see
+            and what escapes, between what exists and what we believe exists — a
+            silent, haunting exploration of control, obedience, and the shadows
+            of childhood that linger in every gesture.
+          </p>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="card card--tag">
+          <span>Watch the Triller</span>
+        </div>
+
+        <div class="card card--body card--upper">
+          <p>
+            A video project made up of seven short films, each experimenting
+            with visual style, mood, and narrative rhythm.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right: YouTube embed -->
+      <div class="project-hero project-hero--video">
+        <iframe
+          src="https://www.youtube.com/embed/XWlpv6sNIWY"
+          title="Cruel Creatures — trailer"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- ── Bottom gallery ── -->
+    <div class="project-gallery">
+      <img
+        src="/images/work/01/null.webp"
+        alt="Visioni della Mente — 6"
+        loading="lazy"
+      />
+      <img
+        src="/images/work/01/null.webp"
+        alt="Visioni della Mente — 7"
+        loading="lazy"
+      />
+      <img
+        src="/images/work/01/null.webp"
+        alt="Visioni della Mente — 8"
+        loading="lazy"
+        class="img-4"
+      />
+      <img
+        src="/images/work/01/null.webp"
+        alt="Visioni della Mente — 9"
+        loading="lazy"
+      />
+      <img
+        src="/images/work/01/null.webp"
+        alt="Visioni della Mente — 10"
+        loading="lazy"
+      />
+      <img
+        src="/images/work/01/null.webp"
+        alt="Visioni della Mente — 11"
+        loading="lazy"
+      />
+      <img
+        src="/images/work/01/01-12.webp"
+        alt="Visioni della Mente — 12"
+        loading="lazy"
+      />
+      <img
+        src="/images/work/01/01-13.webp"
+        alt="Visioni della Mente — 13"
+        loading="lazy"
+      />
+    </div>
+  </article>
+</Base>
+
+<style>
+  /* ── Page shell ── */
+  .project {
+    background: #000000;
+    color: #fff;
+    min-height: 100vh;
+    padding-top: 96px; /* ticker 26 + nav 56 + 14 breathing */
+  }
+
+  /* ── Main grid ── */
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 24px 24px 10px;
+  }
+
+  /* ── Cards column ── */
+  .project-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* ── Base card ── */
+  .card {
+    border: 1.5px solid rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    padding: 14px 18px;
+  }
+
+  /* Tag pill — self-sizing */
+  .card--tag {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    padding: 8px 14px;
+  }
+  .card--tag span {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 1);
+  }
+
+  /* Spacer */
+  .spacer {
+    height: 90%;
+  }
+
+  @media (max-width: 768px) {
+    .spacer {
+      height: 4px;
+    }
+  }
+
+  /* Title card: two sub-columns */
+  .card--title {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 16px 18px;
+  }
+  .project-title {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.2vw, 28px);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    flex: 0 0 44%;
+    padding-right: 20px;
+  }
+  .project-subtitle {
+    flex: 1;
+    border-left: 1.5px solid rgba(255, 255, 255, 0.25);
+    padding-left: 20px;
+  }
+  .project-subtitle p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* Body text card */
+  .card--body p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 400;
+  }
+
+  /* Uppercase variant */
+  .card--upper p {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 1);
+  }
+
+  /* ── Hero image / video ── */
+  .project-hero {
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  .project-hero img {
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    object-fit: contain;
+    display: block;
+  }
+  .project-hero--video {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    align-self: center;
+  }
+  .project-hero--video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  /* ── Gallery ── */
+  .project-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px 24px 40px;
+  }
+  .project-gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+  }
+  .gallery-full {
+    grid-column: 1 / -1;
+  }
+
+  .img-4 {
+    object-fit: contain;
+    max-height: 371px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+    .project-hero {
+      aspect-ratio: 4 / 3;
+    }
+  }
+  @media (max-width: 640px) {
+    .project {
+      padding-top: 88px;
+    }
+    .project-grid {
+      padding: 16px 16px 8px;
+      gap: 8px;
+    }
+    .project-gallery {
+      grid-template-columns: 1fr;
+      padding: 8px 16px 32px;
+    }
+    .gallery-full {
+      grid-column: auto;
+    }
+    .card--title {
+      flex-direction: column;
+      gap: 12px;
+    }
+    .project-subtitle {
+      border-left: none;
+      border-top: 1.5px solid rgba(255, 255, 255, 0.15);
+      padding-left: 0;
+      padding-top: 12px;
+    }
+  }
+</style>

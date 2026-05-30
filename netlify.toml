@@ -1,0 +1,84 @@
+[build]
+  command   = "npm run build"
+  publish   = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Redirect vecchi URL numerici ReadyMag
+[[redirects]]
+  from = "/1/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/2/"
+  to = "/work/"
+  status = 301
+
+[[redirects]]
+  from = "/3/"
+  to = "/work/01/"
+  status = 301
+
+[[redirects]]
+  from = "/4/"
+  to = "/work/02/"
+  status = 301
+
+[[redirects]]
+  from = "/5/"
+  to = "/work/03/"
+  status = 301
+
+[[redirects]]
+  from = "/6/"
+  to = "/work/04/"
+  status = 301
+
+[[redirects]]
+  from = "/7/"
+  to = "/archive/"
+  status = 301
+
+[[redirects]]
+  from = "/8/"
+  to = "/about/"
+  status = 301
+
+[[redirects]]
+  from = "/9/"
+  to = "/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/achive/"
+  to = "/archive/"
+  status = 301
+
+# Header sicurezza
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection       = "1; mode=block"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+
+# HTML: no cache
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Asset hashed Astro: cache permanente
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Video hero: cache permanente
+[[headers]]
+  for = "/hero/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

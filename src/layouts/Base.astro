@@ -1,0 +1,51 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import Nav from '../components/Nav.astro';
+import Ticker from '../components/Ticker.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import '../styles/typography.css';
+import '../styles/transitions.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  showFooter?: boolean;
+  dark?: boolean;
+}
+
+const {
+  title,
+  description = 'Portfolio — Morfeo, designer di prodotti digitali.',
+  showFooter = true,
+  dark = false,
+} = Astro.props;
+---
+<!doctype html>
+<html lang="it" data-theme={dark ? "dark" : undefined}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title === 'Home' ? 'MORFEO' : `${title} — MORFEO`}</title>
+    <ClientRouter />
+  </head>
+  <body>
+    <Ticker />
+    <Nav />
+    <main>
+      <slot />
+    </main>
+    {showFooter && <Footer />}
+    <Ticker bottom />
+  </body>
+</html>

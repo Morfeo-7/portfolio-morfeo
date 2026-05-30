@@ -1,0 +1,111 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const images = [
+  '/images/work/02/02-02.webp',
+  '/images/work/02/02-03.webp',
+];
+---
+<Base title="Studio Antonucci" dark={true}>
+  <article class="case-study">
+    <div class="case-study-cover">
+      <img
+        src="/images/work/02/02-01.webp"
+        alt="Studio Antonucci"
+        class="case-study-hero-img"
+      />
+    </div>
+
+    <div class="case-study-content">
+      <header class="case-study-header">
+        <span class="case-study-num body-sm">02</span>
+        <h1 class="case-study-title heading-lg">Studio Antonucci</h1>
+        <ul class="case-study-meta body-sm">
+          <li>Brand Identity</li>
+          <li>Logo</li>
+          <li>Motion</li>
+          <li>2024</li>
+        </ul>
+      </header>
+      <div class="case-study-body">
+        <p class="body-lg">
+          Studio Antonucci is a fictional branding project developed to define a solid,
+          elegant, and consistent visual identity. The work includes logo design, motion
+          graphics, poster design, and mockups, with a strong focus on applying the brand
+          across different media and maintaining visual coherence.
+        </p>
+      </div>
+    </div>
+
+    <div class="case-study-gallery">
+      {images.map((src, i) => (
+        <img src={src} alt={`Studio Antonucci — ${i + 2}`} loading="lazy" />
+      ))}
+    </div>
+  </article>
+</Base>
+
+<style>
+  .case-study { padding-top: 82px; }
+
+  .case-study-cover {
+    width: 100%;
+    max-height: 80vh;
+    overflow: hidden;
+  }
+  .case-study-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .case-study-content {
+    padding: 56px 32px 64px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .case-study-header { margin-bottom: 48px; }
+  .case-study-num {
+    display: block;
+    color: var(--color-muted);
+    margin-bottom: 10px;
+  }
+  .case-study-title { margin-bottom: 20px; }
+  .case-study-meta {
+    display: flex;
+    gap: 16px;
+    color: var(--color-muted);
+    flex-wrap: wrap;
+  }
+  .case-study-body {
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .case-study-gallery {
+    padding: 0 32px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .case-study-gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .case-study-content { padding: 40px 24px 48px; }
+    .case-study-gallery { padding: 0 24px 60px; grid-template-columns: 1fr; }
+    .case-study-cover { max-height: 60vh; }
+  }
+  @media (max-width: 480px) {
+    .case-study-content { padding: 32px 16px 40px; }
+    .case-study-gallery { padding: 0 16px 48px; }
+  }
+</style>

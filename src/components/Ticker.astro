@@ -1,0 +1,63 @@
+---
+interface Props {
+  bottom?: boolean;
+}
+const { bottom = false } = Astro.props;
+---
+<div class:list={['ticker', { 'ticker--bottom': bottom }]} aria-hidden="true">
+  <div class="ticker-track">
+    <span>WELCOME TO MORFEO STUDIO &nbsp;&nbsp;&nbsp; WELCOME TO MORFEO STUDIO &nbsp;&nbsp;&nbsp; WELCOME TO MORFEO STUDIO &nbsp;&nbsp;&nbsp; WELCOME TO MORFEO STUDIO &nbsp;&nbsp;&nbsp; WELCOME TO MORFEO STUDIO &nbsp;&nbsp;&nbsp; WELCOME TO MORFEO STUDIO &nbsp;&nbsp;&nbsp; </span>
+    <span>WELCOME TO MORFEO STUDIO &nbsp;&nbsp;&nbsp; WELCOME TO MORFEO STUDIO &nbsp;&nbsp;&nbsp; WELCOME TO MORFEO STUDIO &nbsp;&nbsp;&nbsp; WELCOME TO MORFEO STUDIO &nbsp;&nbsp;&nbsp; WELCOME TO MORFEO STUDIO &nbsp;&nbsp;&nbsp; WELCOME TO MORFEO STUDIO &nbsp;&nbsp;&nbsp; </span>
+  </div>
+</div>
+
+<style>
+  .ticker {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    height: 26px;
+    overflow: hidden;
+    background: var(--color-bg);
+    display: flex;
+    align-items: center;
+    top: 0;
+  }
+
+  .ticker--bottom {
+    top: auto;
+    bottom: 0;
+  }
+
+  .ticker-track {
+    display: inline-flex;
+    white-space: nowrap;
+    will-change: transform;
+    animation: ticker-scroll 25s linear infinite;
+  }
+
+  /* bottom scorre nel senso opposto (destra) usando reverse sullo stesso keyframe */
+  .ticker--bottom .ticker-track {
+    animation: ticker-scroll 25s linear infinite reverse;
+  }
+
+  .ticker-track span {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--color-text);
+  }
+
+  @keyframes ticker-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @media (max-width: 480px) {
+    .ticker-track span {
+      font-size: 13px;
+    }
+  }
+</style>

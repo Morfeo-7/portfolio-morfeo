@@ -1,0 +1,93 @@
+---
+import Base from "../../layouts/Base.astro";
+import WorkCard from "../../components/WorkCard.astro";
+
+const projects = [
+  {
+    number: "01",
+    title: "Visioni della Mente",
+    tags: ["Editorial Design", "Short Films"],
+    href: "/work/01/",
+    cover: "/images/work/01/01-01.webp",
+  },
+  {
+    number: "02",
+    title: "Studio Antonucci",
+    tags: ["Brand Identity", "Motion"],
+    href: "/work/02/",
+    cover: "/images/work/02/02-01.webp",
+  },
+  {
+    number: "03",
+    title: "Posters & Motion Design",
+    tags: ["Print", "Motion"],
+    href: "/work/03/",
+    cover: "/images/work/03/03-02.webp",
+  },
+  {
+    number: "04",
+    title: "3D Works",
+    tags: ["3D", "Animation"],
+    href: "/work/04/",
+    cover: "/images/work/04/04-01.gif",
+  },
+];
+---
+
+<Base title="Work" dark={true}>
+  <section class="work-index">
+    <header class="work-header">
+      <p class="work-label body-sm">Selected Work</p>
+      <h1 class="heading-lg">PROJECTS</h1>
+    </header>
+    <div class="work-grid">
+      {projects.map((p) => <WorkCard {...p} />)}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .work-index {
+    padding: 120px 32px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .work-header {
+    margin-bottom: 48px;
+  }
+
+  .work-label {
+    color: var(--color-muted);
+    margin-bottom: 10px;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 32px;
+  }
+
+  @media (max-width: 1024px) {
+    .work-grid {
+      gap: 40px 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .work-index {
+      padding: 104px 24px 64px;
+    }
+
+    .work-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .work-index {
+      padding: 100px 16px 48px;
+    }
+  }
+</style>

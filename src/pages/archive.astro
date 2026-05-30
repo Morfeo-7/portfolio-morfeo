@@ -1,0 +1,108 @@
+---
+import Base from "../layouts/Base.astro";
+
+const images = [
+  "/images/archive/arch-01.webp",
+  "/images/archive/arch-02.webp",
+  "/images/archive/arch-03.webp",
+  "/images/archive/arch-04.webp",
+  "/images/archive/arch-05.webp",
+  "/images/archive/arch-06.gif",
+  "/images/archive/arch-07.webp",
+  "/images/archive/arch-08.webp",
+  "/images/archive/arch-09.webp",
+  "/images/archive/arch-10.webp",
+];
+---
+
+<Base title="Archive" dark={true}>
+  <section class="archive">
+    <header class="archive-header">
+      <p class="archive-label body-sm">Archive</p>
+      <h1 class="archive-headline heading-lg">
+        PREVIOUS WORK<br />& EXPERIMENTS.
+      </h1>
+      <p class="archive-note body-md">
+        A collection of previous projects, design experiments, and research.
+      </p>
+    </header>
+    <div class="archive-grid">
+      {
+        images.map((src, i) => (
+          <div class="archive-item">
+            <img src={src} alt={`Archive ${i + 1}`} loading="lazy" />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Base>
+
+<style>
+  .archive {
+    padding: 120px 32px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .archive-header {
+    margin-bottom: 48px;
+  }
+
+  .archive-label {
+    color: var(--color-muted);
+    margin-bottom: 10px;
+  }
+
+  .archive-headline {
+    margin-bottom: 10px;
+  }
+
+  .archive-note {
+    color: var(--color-muted);
+    max-width: 480px;
+    line-height: 1.7;
+  }
+
+  .archive-grid {
+    columns: 3;
+    gap: 8px;
+  }
+
+  .archive-item {
+    break-inside: avoid;
+    margin-bottom: 8px;
+  }
+
+  .archive-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 1024px) {
+    .archive-grid {
+      columns: 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .archive {
+      padding: 104px 24px 64px;
+    }
+
+    .archive-grid {
+      columns: 2;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .archive {
+      padding: 100px 16px 48px;
+    }
+
+    .archive-grid {
+      columns: 1;
+    }
+  }
+</style>

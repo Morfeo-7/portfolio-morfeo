@@ -1,0 +1,305 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Contact">
+  <section class="contact">
+    <div class="contact-header">
+      <p class="contact-label body-sm">Contact</p>
+      <h1 class="contact-headline heading-lg">CONTACT ME</h1>
+    </div>
+
+    <div class="contact-body">
+      <div class="contact-left">
+        <form
+          class="contact-form"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="form-honeypot">
+            <label>Non compilare: <input name="bot-field" /></label>
+          </p>
+
+          <div class="form-group">
+            <label for="name" class="form-label body-sm">Nome</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-input body-md"
+              autocomplete="name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label body-sm">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input body-md"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label body-sm">Messaggio</label>
+            <textarea
+              id="message"
+              name="message"
+              class="form-input form-textarea body-md"
+              rows="4"
+              required></textarea>
+          </div>
+
+          <div class="form-footer">
+            <button type="submit" class="form-submit body-sm">
+              Invia <span class="submit-arrow">→</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="contact-right">
+        <div class="contact-pills">
+          <a href="mailto:francesca.r.antonucci@gmail.com" class="contact-pill">
+            <span class="pill-label body-sm">Mail</span>
+            <span class="pill-value">francesca.r.antonucci@gmail.com</span>
+            <span class="pill-arrow">↗</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/francesca-antonucci-7693083a9"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-pill"
+          >
+            <span class="pill-label body-sm">LinkedIn</span>
+            <span class="pill-value">Francesca Antonucci</span>
+            <span class="pill-arrow">↗</span>
+          </a>
+          <a
+            href="https://www.instagram.com/m0rfe0_"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-pill"
+          >
+            <span class="pill-label body-sm">Instagram</span>
+            <span class="pill-value">@m0rfe0_</span>
+            <span class="pill-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .contact {
+    padding: 120px 32px 100px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .contact-header {
+    margin-bottom: 48px;
+  }
+
+  .contact-label {
+    color: var(--color-muted);
+    margin-bottom: 10px;
+  }
+
+  .contact-headline {
+    /* no extra margin needed */
+  }
+
+  /* ── Two-column layout ────────────────────────────── */
+  .contact-body {
+    display: grid;
+    grid-template-columns: 8fr 4fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  /* ── Pills ────────────────────────────────────────── */
+  .contact-pills {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-pill {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border: 2px solid var(--color-text);
+    border-radius: 20px;
+    color: var(--color-text);
+    transition:
+      background-color 0.22s var(--ease-page),
+      color 0.22s var(--ease-page);
+  }
+
+  .contact-pill:hover {
+    background-color: #000;
+    color: var(--color-bg);
+  }
+
+  .pill-label {
+    width: 88px;
+    flex-shrink: 0;
+    color: var(--color-muted);
+    transition: color 0.22s var(--ease-page);
+  }
+
+  .contact-pill:hover .pill-label {
+    color: var(--color-bg);
+    opacity: 0.75;
+  }
+
+  .pill-value {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .pill-arrow {
+    font-size: 14px;
+    transition: transform 0.2s var(--ease-page);
+    flex-shrink: 0;
+  }
+
+  .contact-pill:hover .pill-arrow {
+    transform: translate(2px, -2px);
+  }
+
+  /* ── Form ────────────────────────────────────────── */
+  .form-honeypot {
+    display: none;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .form-label {
+    color: var(--color-muted);
+  }
+
+  .form-input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(36, 36, 36, 0.18);
+    border-radius: 0;
+    padding: 8px 0;
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.5;
+    outline: none;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: border-color 0.2s var(--ease-page);
+  }
+
+  [data-theme="dark"] .form-input {
+    border-bottom-color: rgba(255, 255, 255, 0.18);
+  }
+
+  .form-input:focus {
+    border-bottom-color: var(--color-text);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 110px;
+  }
+
+  .form-footer {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 4px;
+  }
+
+  .form-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border: 2px solid var(--color-text);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--color-text);
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition:
+      background-color 0.22s var(--ease-page),
+      color 0.22s var(--ease-page);
+  }
+
+  .form-submit:hover {
+    background-color: #000;
+    color: var(--color-bg);
+  }
+
+  .submit-arrow {
+    display: inline-block;
+    transition: transform 0.2s var(--ease-page);
+  }
+
+  .form-submit:hover .submit-arrow {
+    transform: translateX(4px);
+  }
+
+  /* ── Responsive ───────────────────────────────────── */
+  @media (max-width: 900px) {
+    .contact-body {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contact {
+      padding: 104px 24px 80px;
+    }
+
+    .contact-header {
+      margin-bottom: 40px;
+    }
+
+    .pill-value {
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact {
+      padding: 100px 16px 64px;
+    }
+
+    .contact-pill {
+      padding: 14px 16px;
+    }
+
+    .pill-label {
+      width: 76px;
+    }
+  }
+</style>

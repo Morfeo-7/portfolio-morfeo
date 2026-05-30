@@ -1,0 +1,116 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const images = [
+  '/images/work/03/03-01.png',
+  '/images/work/03/03-03.webp',
+  '/images/work/03/03-04.webp',
+  '/images/work/03/03-05.webp',
+  '/images/work/03/03-06.webp',
+  '/images/work/03/03-07.webp',
+];
+---
+<Base title="Posters & Motion Design" dark={true}>
+  <article class="case-study">
+    <div class="case-study-cover">
+      <img
+        src="/images/work/03/03-02.webp"
+        alt="Posters & Motion Design"
+        class="case-study-hero-img"
+      />
+    </div>
+
+    <div class="case-study-content">
+      <header class="case-study-header">
+        <span class="case-study-num body-sm">03</span>
+        <h1 class="case-study-title heading-lg">Posters & Motion Design</h1>
+        <ul class="case-study-meta body-sm">
+          <li>Print</li>
+          <li>Motion</li>
+          <li>Photoshop</li>
+          <li>After Effects</li>
+          <li>2024</li>
+        </ul>
+      </header>
+      <div class="case-study-body">
+        <p class="body-lg">
+          Experiments in poster layouts, typography, and animated graphics exploring different
+          visual styles and techniques. Selected examples from various experiments in print
+          and animation, created using Photoshop, Illustrator, and After Effects.
+        </p>
+      </div>
+    </div>
+
+    <div class="case-study-gallery">
+      {images.map((src, i) => (
+        <img src={src} alt={`Posters & Motion — ${i + 2}`} loading="lazy" />
+      ))}
+    </div>
+  </article>
+</Base>
+
+<style>
+  .case-study { padding-top: 82px; }
+
+  .case-study-cover {
+    width: 100%;
+    max-height: 80vh;
+    overflow: hidden;
+  }
+  .case-study-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .case-study-content {
+    padding: 56px 32px 64px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .case-study-header { margin-bottom: 48px; }
+  .case-study-num {
+    display: block;
+    color: var(--color-muted);
+    margin-bottom: 10px;
+  }
+  .case-study-title { margin-bottom: 20px; }
+  .case-study-meta {
+    display: flex;
+    gap: 16px;
+    color: var(--color-muted);
+    flex-wrap: wrap;
+  }
+  .case-study-body {
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .case-study-gallery {
+    padding: 0 32px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    columns: 2;
+    gap: 8px;
+  }
+  .case-study-gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    break-inside: avoid;
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .case-study-content { padding: 40px 24px 48px; }
+    .case-study-gallery { padding: 0 24px 60px; columns: 1; }
+    .case-study-cover { max-height: 60vh; }
+  }
+  @media (max-width: 480px) {
+    .case-study-content { padding: 32px 16px 40px; }
+    .case-study-gallery { padding: 0 16px 48px; }
+  }
+</style>

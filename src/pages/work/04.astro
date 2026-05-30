@@ -1,0 +1,125 @@
+---
+import Base from "../../layouts/Base.astro";
+---
+
+<Base title="3D Works" dark={true}>
+  <article class="case-study">
+    <div class="case-study-cover">
+      <img
+        src="/images/work/04/04-01.gif"
+        alt="3D Works"
+        class="case-study-hero-img"
+      />
+    </div>
+
+    <div class="case-study-content">
+      <header class="case-study-header">
+        <span class="case-study-num body-sm">04</span>
+        <h1 class="case-study-title heading-lg">3D Works</h1>
+        <ul class="case-study-meta body-sm">
+          <li>3D</li>
+          <li>Animation</li>
+          <li>Blender</li>
+          <li>After Effects</li>
+          <li>2023</li>
+        </ul>
+      </header>
+      <div class="case-study-body">
+        <p class="body-lg">
+          Personal projects in 3D modeling, animation, and motion design
+          exploring forms, textures, and visual effects. Selected 3D and motion
+          pieces showcasing different techniques and styles, created using After
+          Effects and Blender.
+        </p>
+      </div>
+    </div>
+
+    <div class="case-study-gallery">
+      <img
+        src="/images/work/04/04-02.png"
+        alt="3D Works — detail"
+        loading="lazy"
+      />
+    </div>
+  </article>
+</Base>
+
+<style>
+  .case-study {
+    padding-top: 82px;
+  }
+
+  .case-study-cover {
+    width: 100%;
+    max-height: 80vh;
+    overflow: hidden;
+    background: #000;
+  }
+  .case-study-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .case-study-content {
+    padding: 56px 32px 64px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .case-study-header {
+    margin-bottom: 48px;
+  }
+  .case-study-num {
+    display: block;
+    color: var(--color-muted);
+    margin-bottom: 10px;
+  }
+  .case-study-title {
+    margin-bottom: 20px;
+  }
+  .case-study-meta {
+    display: flex;
+    gap: 16px;
+    color: var(--color-muted);
+    flex-wrap: wrap;
+  }
+  .case-study-body {
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .case-study-gallery {
+    padding: 0 32px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .case-study-gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .case-study-content {
+      padding: 40px 24px 48px;
+    }
+    .case-study-gallery {
+      padding: 0 24px 60px;
+    }
+    .case-study-cover {
+      max-height: 60vh;
+    }
+  }
+  @media (max-width: 480px) {
+    .case-study-content {
+      padding: 32px 16px 40px;
+    }
+    .case-study-gallery {
+      padding: 0 16px 48px;
+    }
+  }
+</style>

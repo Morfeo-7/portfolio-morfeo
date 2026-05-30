@@ -1,0 +1,76 @@
+---
+
+---
+
+<section class="hero">
+  <video class="hero-video" autoplay muted playsinline disablepictureinpicture>
+    <source src="/hero/hero_morfeo.mp4" type="video/mp4" />
+  </video>
+</section>
+
+<style>
+  .hero {
+    width: 100vw;
+    height: 100svh;
+    overflow: hidden;
+    position: relative;
+    background: var(--color-bg);
+  }
+
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-video {
+      position: relative;
+      inset: auto;
+      width: 100%;
+      height: auto;
+      max-height: 100svh;
+      object-fit: contain;
+    }
+  }
+</style>
+
+<script>
+  const video = document.querySelector<HTMLVideoElement>("video.hero-video")!;
+  let reversing = false;
+  let lastRafTs = 0;
+
+  video.addEventListener("ended", () => {
+    reversing = true;
+    lastRafTs = 0;
+    video.currentTime = video.duration - 1 / 30; // kick off first seek
+  });
+
+  video.addEventListener("seeked", () => {
+    if (!reversing) return;
+
+    if (video.currentTime <= 0) {
+      reversing = false;
+      video.currentTime = 0;
+      setTimeout(() => video.play(), 2500);
+      return;
+    }
+
+    requestAnimationFrame((ts) => {
+      // elapsed = real time since last RAF → step back by the same amount = 1x speed
+      const elapsed = lastRafTs ? (ts - lastRafTs) / 1000 : 1 / 30;
+      lastRafTs = ts;
+      video.currentTime = Math.max(0, video.currentTime - elapsed);
+    });
+  });
+</script>
