@@ -199,6 +199,8 @@ import Base from "../layouts/Base.astro";
 
   .form-label {
     color: var(--color-muted);
+    font-size: 14px;
+    font-weight: bold;
   }
 
   .form-input {
@@ -224,6 +226,10 @@ import Base from "../layouts/Base.astro";
 
   .form-input:focus {
     border-bottom-color: var(--color-text);
+  }
+
+  .form-group:focus-within .form-label {
+    color: var(--color-text);
   }
 
   .form-textarea {
@@ -277,7 +283,7 @@ import Base from "../layouts/Base.astro";
 
   @media (max-width: 768px) {
     .contact {
-      padding: 104px 24px 80px;
+      padding: 104px 24px 100px;
     }
 
     .contact-header {
@@ -291,7 +297,7 @@ import Base from "../layouts/Base.astro";
 
   @media (max-width: 480px) {
     .contact {
-      padding: 100px 16px 64px;
+      padding: 100px 16px 124px;
     }
 
     .contact-pill {
