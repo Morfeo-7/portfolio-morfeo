@@ -1,0 +1,63 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Messaggio inviato">
+  <section class="success">
+    <div class="success-icon">✓</div>
+    <h1 class="heading-lg">Grazie!</h1>
+    <p class="body-md success-text">
+      Il tuo messaggio è stato inviato con successo.<br />
+      Ti risponderò il prima possibile.
+    </p>
+    <a href="/" class="success-back body-sm">
+      ← Torna alla home
+    </a>
+  </section>
+</Base>
+
+<style>
+  .success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    padding: 120px 32px;
+    text-align: center;
+  }
+
+  .success-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 2px solid var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .success-text {
+    color: var(--color-muted);
+    margin-top: 12px;
+    max-width: 420px;
+  }
+
+  .success-back {
+    margin-top: 32px;
+    padding: 14px 28px;
+    border: 2px solid var(--color-text);
+    border-radius: 20px;
+    color: var(--color-text);
+    transition:
+      background-color 0.22s var(--ease-page),
+      color 0.22s var(--ease-page);
+  }
+
+  .success-back:hover {
+    background-color: #000;
+    color: var(--color-bg);
+  }
+</style>
