@@ -12,13 +12,15 @@ const { number, title, tags = [], href, cover } = Astro.props;
 
 <a href={href} class="work-card">
   <div class="work-card-cover">
-    {
-      cover ? (
-        <img src={cover} alt={title} loading="lazy" width="800" height="450" />
+    {cover ? (
+      cover.endsWith('.mp4') ? (
+        <video src={cover} autoplay loop muted playsinline />
       ) : (
-        <div class="work-card-placeholder" />
+        <img src={cover} alt={title} loading="lazy" width="800" height="450" />
       )
-    }
+    ) : (
+      <div class="work-card-placeholder" />
+    )}
   </div>
   <div class="work-card-meta">
     <span class="work-card-number">{number}</span>
@@ -52,7 +54,8 @@ const { number, title, tags = [], href, cover } = Astro.props;
     margin-bottom: 14px;
   }
 
-  .work-card-cover img {
+  .work-card-cover img,
+  .work-card-cover video {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -65,7 +68,8 @@ const { number, title, tags = [], href, cover } = Astro.props;
     background: #f0eeea;
   }
 
-  .work-card:hover .work-card-cover img {
+  .work-card:hover .work-card-cover img,
+  .work-card:hover .work-card-cover video {
     transform: scale(1.03);
   }
 

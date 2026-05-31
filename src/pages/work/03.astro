@@ -1,116 +1,629 @@
 ---
-import Base from '../../layouts/Base.astro';
+import Base from "../../layouts/Base.astro";
 
-const images = [
-  '/images/work/03/03-01.png',
-  '/images/work/03/03-03.webp',
-  '/images/work/03/03-04.webp',
-  '/images/work/03/03-05.webp',
-  '/images/work/03/03-06.webp',
-  '/images/work/03/03-07.webp',
+const lbImages = [
+  { src: "/images/work/03/03-04.webp", alt: "Posters & Motion — 4" },
+  { src: "/images/work/03/03-05.png",  alt: "Posters & Motion — 5" },
+  { src: "/images/work/03/03-06.png",  alt: "Posters & Motion — 6" },
+  { src: "/images/work/03/03-07.webp", alt: "Posters & Motion — 7" },
+  { src: "/images/work/03/03-08.webp", alt: "Posters & Motion — 8" },
+  { src: "/images/work/03/03-09.webp", alt: "Posters & Motion — 9" },
+  { src: "/images/work/03/03-10.png",  alt: "Posters & Motion — 10" },
+  { src: "/images/work/03/03-11.png",  alt: "Posters & Motion — 11" },
+  { src: "/images/work/03/03-12.png",  alt: "Posters & Motion — 12" },
+  { src: "/images/work/03/03-13.png",  alt: "Posters & Motion — 13" },
+  { src: "/images/work/03/03-14.png",  alt: "Posters & Motion — 14" },
+  { src: "/images/work/03/03-15.png",  alt: "Posters & Motion — 15" },
+  { src: "/images/work/03/03-16.jpg",  alt: "Posters & Motion — 16" },
+  { src: "/images/work/03/03-17.png",  alt: "Posters & Motion — 17" },
+  { src: "/images/work/03/03-18.png",  alt: "Posters & Motion — 18" },
 ];
 ---
-<Base title="Posters & Motion Design" dark={true}>
-  <article class="case-study">
-    <div class="case-study-cover">
-      <img
-        src="/images/work/03/03-02.webp"
-        alt="Posters & Motion Design"
-        class="case-study-hero-img"
-      />
-    </div>
 
-    <div class="case-study-content">
-      <header class="case-study-header">
-        <span class="case-study-num body-sm">03</span>
-        <h1 class="case-study-title heading-lg">Posters & Motion Design</h1>
-        <ul class="case-study-meta body-sm">
-          <li>Print</li>
-          <li>Motion</li>
-          <li>Photoshop</li>
-          <li>After Effects</li>
-          <li>2024</li>
-        </ul>
-      </header>
-      <div class="case-study-body">
-        <p class="body-lg">
-          Experiments in poster layouts, typography, and animated graphics exploring different
-          visual styles and techniques. Selected examples from various experiments in print
-          and animation, created using Photoshop, Illustrator, and After Effects.
-        </p>
+<Base title="Posters & Motion Design" showFooter={false} dark={true}>
+  <article class="project">
+    <!-- ── Section: Posters & Motion ── -->
+    <div class="project-grid">
+      <div class="project-cards">
+        <div class="card card--tag">
+          <span>Created using Photoshop, Illustrator, and After Effects</span>
+        </div>
+
+        <div class="card card--title">
+          <h1 class="project-title">Posters &amp; Motion</h1>
+          <div class="project-subtitle">
+            <p>
+              Experiments in poster layouts, typography, and animated graphics
+              exploring different visual styles and techniques.
+            </p>
+          </div>
+        </div>
+
+        <div class="card card--body">
+          <p>
+            A collection of graphic design and motion experiments developed
+            across different projects and personal explorations. Each piece
+            tests a distinct visual approach — from editorial typography to bold
+            poster composition and frame-by-frame animation.
+          </p>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="card card--tag">
+          <span>Graphic Experiments</span>
+        </div>
+
+        <div class="card card--body card--upper">
+          <p>
+            Selected examples from various experiments in print and animation.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-hero">
+        <video src="/images/work/03/03-01.mp4" autoplay loop muted playsinline
+        ></video>
       </div>
     </div>
 
-    <div class="case-study-gallery">
-      {images.map((src, i) => (
-        <img src={src} alt={`Posters & Motion — ${i + 2}`} loading="lazy" />
-      ))}
+    <!-- ── Gallery 1: 2 video ── -->
+    <div class="project-gallery">
+      <video src="/images/work/03/03-02.mp4" autoplay loop muted playsinline
+      ></video>
+      <video src="/images/work/03/03-03.mp4" autoplay loop muted playsinline
+      ></video>
+    </div>
+
+    <!-- ── Lightbox gallery: 4 immagini ── -->
+    <div class="gallery-lightbox">
+      {
+        lbImages.map((img, i) => (
+          <div class="lb-item" data-index={i}>
+            <img src={img.src} alt={img.alt} loading="lazy" />
+            <button
+              class="lb-expand"
+              data-index={i}
+              aria-label="Espandi immagine"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="15 3 21 3 21 9" />
+                <polyline points="9 21 3 21 3 15" />
+                <line x1="21" y1="3" x2="14" y2="10" />
+                <line x1="3" y1="21" x2="10" y2="14" />
+              </svg>
+            </button>
+          </div>
+        ))
+      }
     </div>
   </article>
+
+  <!-- ── Lightbox overlay ── -->
+  <div
+    class="lightbox"
+    id="lightbox"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+  >
+    <button class="lb-close" id="lb-close" aria-label="Chiudi">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <button class="lb-nav lb-prev" id="lb-prev" aria-label="Precedente">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="lightbox-stage">
+      <img id="lb-img" src="" alt="" />
+    </div>
+
+    <button class="lb-nav lb-next" id="lb-next" aria-label="Successiva">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="lightbox-dots" id="lb-dots"></div>
+  </div>
 </Base>
 
+<script>
+  function initLightbox() {
+    const images = [
+      { src: "/images/work/03/03-04.webp", alt: "Posters & Motion — 4" },
+      { src: "/images/work/03/03-05.png",  alt: "Posters & Motion — 5" },
+      { src: "/images/work/03/03-06.png",  alt: "Posters & Motion — 6" },
+      { src: "/images/work/03/03-07.webp", alt: "Posters & Motion — 7" },
+      { src: "/images/work/03/03-08.webp", alt: "Posters & Motion — 8" },
+      { src: "/images/work/03/03-09.webp", alt: "Posters & Motion — 9" },
+      { src: "/images/work/03/03-10.png",  alt: "Posters & Motion — 10" },
+      { src: "/images/work/03/03-11.png",  alt: "Posters & Motion — 11" },
+      { src: "/images/work/03/03-12.png",  alt: "Posters & Motion — 12" },
+      { src: "/images/work/03/03-13.png",  alt: "Posters & Motion — 13" },
+      { src: "/images/work/03/03-14.png",  alt: "Posters & Motion — 14" },
+      { src: "/images/work/03/03-15.png",  alt: "Posters & Motion — 15" },
+      { src: "/images/work/03/03-16.jpg",  alt: "Posters & Motion — 16" },
+      { src: "/images/work/03/03-17.png",  alt: "Posters & Motion — 17" },
+      { src: "/images/work/03/03-18.png",  alt: "Posters & Motion — 18" },
+    ];
+
+    const lightbox = document.getElementById("lightbox") as HTMLDivElement;
+    const lbImg = document.getElementById("lb-img") as HTMLImageElement;
+    const dotsEl = document.getElementById("lb-dots") as HTMLDivElement;
+    if (!lightbox || !lbImg || !dotsEl) return;
+
+    let current = 0;
+
+    // Genera i dot
+    dotsEl.innerHTML = "";
+    const dots = images.map((_, i) => {
+      const btn = document.createElement("button");
+      btn.className = "lb-dot";
+      btn.setAttribute("aria-label", `Immagine ${i + 1}`);
+      btn.addEventListener("click", () => goTo(i));
+      dotsEl.appendChild(btn);
+      return btn;
+    });
+
+    function update() {
+      lbImg.src = images[current].src;
+      lbImg.alt = images[current].alt;
+      dots.forEach((d, i) => d.classList.toggle("active", i === current));
+    }
+
+    function open(i: number) {
+      current = i;
+      update();
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function close() {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    function goTo(i: number) {
+      current = i;
+      update();
+    }
+    function prev() {
+      current = (current - 1 + images.length) % images.length;
+      update();
+    }
+    function next() {
+      current = (current + 1) % images.length;
+      update();
+    }
+
+    // Expand buttons
+    document.querySelectorAll(".lb-expand").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        open(parseInt((btn as HTMLElement).dataset.index ?? "0"));
+      });
+    });
+
+    // Click sull'item apre il lightbox
+    document.querySelectorAll(".lb-item").forEach((item, i) => {
+      item.addEventListener("click", () => open(i));
+    });
+
+    (
+      document.getElementById("lb-close") as HTMLButtonElement
+    )?.addEventListener("click", close);
+    (document.getElementById("lb-prev") as HTMLButtonElement)?.addEventListener(
+      "click",
+      prev,
+    );
+    (document.getElementById("lb-next") as HTMLButtonElement)?.addEventListener(
+      "click",
+      next,
+    );
+
+    // Click fuori dallo stage chiude
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) close();
+    });
+
+    // Keyboard
+    document.addEventListener("keydown", (e) => {
+      if (!lightbox.classList.contains("open")) return;
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+      if (e.key === "Escape") close();
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", initLightbox);
+  document.addEventListener("astro:page-load", initLightbox);
+</script>
+
 <style>
-  .case-study { padding-top: 82px; }
-
-  .case-study-cover {
-    width: 100%;
-    max-height: 80vh;
-    overflow: hidden;
-  }
-  .case-study-hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  /* ── Page shell ── */
+  .project {
+    background: #000000;
+    color: #fff;
+    min-height: 100vh;
+    padding-top: 96px;
   }
 
-  .case-study-content {
-    padding: 56px 32px 64px;
-    max-width: 960px;
-    margin: 0 auto;
+  /* ── Main grid ── */
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 24px 24px 10px;
   }
-  .case-study-header { margin-bottom: 48px; }
-  .case-study-num {
-    display: block;
-    color: var(--color-muted);
-    margin-bottom: 10px;
-  }
-  .case-study-title { margin-bottom: 20px; }
-  .case-study-meta {
-    display: flex;
-    gap: 16px;
-    color: var(--color-muted);
-    flex-wrap: wrap;
-  }
-  .case-study-body {
-    max-width: 640px;
+
+  /* ── Cards column ── */
+  .project-cards {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 8px;
+    height: 100%;
   }
 
-  .case-study-gallery {
-    padding: 0 32px 80px;
-    max-width: 1200px;
-    margin: 0 auto;
-    columns: 2;
-    gap: 8px;
+  /* ── Base card ── */
+  .card {
+    border: 1.5px solid rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    padding: 14px 18px;
   }
-  .case-study-gallery img {
-    width: 100%;
-    height: auto;
-    display: block;
-    break-inside: avoid;
-    margin-bottom: 8px;
+
+  /* Tag pill */
+  .card--tag {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    padding: 8px 14px;
+  }
+  .card--tag span {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 1);
+  }
+
+  /* Spacer */
+  .spacer {
+    flex: 1;
+    min-height: 16px;
   }
 
   @media (max-width: 768px) {
-    .case-study-content { padding: 40px 24px 48px; }
-    .case-study-gallery { padding: 0 24px 60px; columns: 1; }
-    .case-study-cover { max-height: 60vh; }
+    .spacer {
+      display: none;
+    }
   }
-  @media (max-width: 480px) {
-    .case-study-content { padding: 32px 16px 40px; }
-    .case-study-gallery { padding: 0 16px 48px; }
+
+  /* Title card */
+  .card--title {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 16px 18px;
+  }
+  .project-title {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.2vw, 28px);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    flex: 0 0 44%;
+    padding-right: 20px;
+  }
+  .project-subtitle {
+    flex: 1;
+    border-left: 1.5px solid rgba(255, 255, 255, 0.25);
+    padding-left: 20px;
+  }
+  .project-subtitle p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* Body card */
+  .card--body p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 400;
+  }
+
+  /* Uppercase variant */
+  .card--upper p {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 1);
+  }
+
+  /* ── Hero ── */
+  .project-hero {
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  .project-hero img,
+  .project-hero video {
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* ── Standard gallery ── */
+  .project-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px 24px 24px;
+  }
+  .project-gallery img,
+  .project-gallery video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+  }
+
+  /* ── Lightbox gallery grid ── */
+  .gallery-lightbox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px 24px 40px;
+  }
+
+  .lb-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  .lb-item img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .lb-item:hover img {
+    transform: scale(1.02);
+  }
+
+  /* Expand button */
+  .lb-expand {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.65);
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 2;
+  }
+
+  .lb-item:hover .lb-expand {
+    opacity: 1;
+  }
+
+  /* ── Lightbox overlay ── */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.96);
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .lightbox.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .lightbox-stage {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 60px 80px 20px;
+  }
+
+  .lightbox-stage img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 12px;
+    user-select: none;
+  }
+
+  /* Close */
+  .lb-close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .lb-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Prev / Next */
+  .lb-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .lb-nav:hover {
+    background: rgba(255, 255, 255, 0.18);
+  }
+  .lb-prev {
+    left: 20px;
+  }
+  .lb-next {
+    right: 20px;
+  }
+
+  /* Dot tracker */
+  .lightbox-dots {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 28px;
+  }
+
+  .lb-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.65);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .lb-dot.active {
+    background: white;
+    border-color: white;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+    .project-hero {
+      aspect-ratio: 4 / 3;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .project {
+      padding-top: 88px;
+    }
+
+    .project-grid {
+      padding: 16px 16px 8px;
+      gap: 8px;
+    }
+    .project-gallery,
+    .gallery-lightbox {
+      grid-template-columns: 1fr;
+      padding: 8px 16px 24px;
+    }
+    .card--title {
+      flex-direction: column;
+      gap: 12px;
+    }
+    .project-subtitle {
+      border-left: none;
+      border-top: 1.5px solid rgba(255, 255, 255, 0.15);
+      padding-left: 0;
+      padding-top: 12px;
+    }
+    .lb-nav {
+      display: none;
+    }
+    .lightbox-stage {
+      padding: 60px 16px 20px;
+    }
   }
 </style>

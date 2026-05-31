@@ -1,111 +1,315 @@
 ---
-import Base from '../../layouts/Base.astro';
-
-const images = [
-  '/images/work/02/02-02.webp',
-  '/images/work/02/02-03.webp',
-];
+import Base from "../../layouts/Base.astro";
 ---
-<Base title="Studio Antonucci" dark={true}>
-  <article class="case-study">
-    <div class="case-study-cover">
-      <img
-        src="/images/work/02/02-01.webp"
-        alt="Studio Antonucci"
-        class="case-study-hero-img"
-      />
+
+<Base title="Studio Antonucci" showFooter={false} dark={true}>
+  <article class="project">
+    <!-- ── Section 1: Studio Antonucci ── -->
+    <div class="project-grid">
+      <div class="project-cards">
+        <div class="card card--tag">
+          <span>Brand Identity / Logo / Visual Communication</span>
+        </div>
+
+        <div class="card card--title">
+          <h1 class="project-title">Studio Antonucci</h1>
+          <div class="project-subtitle">
+            <p>
+              A fictional branding project developed to define a solid, elegant,
+              and consistent visual identity.
+            </p>
+          </div>
+        </div>
+
+        <div class="card card--body">
+          <p>
+            Studio Antonucci is a fictional branding project developed to define
+            a solid, elegant, and consistent visual identity. The work includes
+            logo design, motion graphics, poster design, and mockups, with a
+            strong focus on applying the brand across different media and
+            maintaining visual coherence.
+          </p>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="card card--tag">
+          <span>Studio Visuals</span>
+        </div>
+
+        <div class="card card--body card--upper">
+          <p>
+            Design highlights with visual experiments and project compositions.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-hero">
+        <video src="/images/work/02/02-01.mp4" autoplay loop muted playsinline
+        ></video>
+      </div>
     </div>
 
-    <div class="case-study-content">
-      <header class="case-study-header">
-        <span class="case-study-num body-sm">02</span>
-        <h1 class="case-study-title heading-lg">Studio Antonucci</h1>
-        <ul class="case-study-meta body-sm">
-          <li>Brand Identity</li>
-          <li>Logo</li>
-          <li>Motion</li>
-          <li>2024</li>
-        </ul>
-      </header>
-      <div class="case-study-body">
-        <p class="body-lg">
-          Studio Antonucci is a fictional branding project developed to define a solid,
-          elegant, and consistent visual identity. The work includes logo design, motion
-          graphics, poster design, and mockups, with a strong focus on applying the brand
-          across different media and maintaining visual coherence.
+    <!-- ── Gallery 1 ── -->
+    <div class="project-gallery">
+      <img
+        src="/images/work/02/02-02.webp"
+        alt="Studio Antonucci — mockup"
+        loading="lazy"
+      />
+      <div class="project-item">
+        <video src="/images/work/02/02-03.mp4" autoplay loop muted playsinline
+        ></video>
+      </div>
+      <img src="/images/work/02/02-04.webp" alt="4AM" loading="lazy" />
+      <img src="/images/work/02/02-05.webp" alt="4AM — mockup" loading="lazy" />
+    </div>
+  </article>
+
+  <!-- ── Section 2: 4AM ── -->
+  <div class="project-grid">
+    <div class="project-cards">
+      <div class="card card--tag">
+        <span>Brand Identity / Logo / Visual Communication</span>
+      </div>
+
+      <div class="card card--title">
+        <h1 class="project-title">4AM</h1>
+        <div class="project-subtitle">
+          <p>A contemporary and experimental approach to visual identity.</p>
+        </div>
+      </div>
+
+      <div class="card card--body">
+        <p>
+          4AM is a fictional branding project created to explore a more
+          contemporary and experimental approach to visual design. The project
+          includes logo design, animations, poster design, and mockups,
+          resulting in a dynamic and recognizable identity suitable for both
+          digital and physical contexts.
+        </p>
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="card card--tag">
+        <span>Creative Lab</span>
+      </div>
+
+      <div class="card card--body card--upper">
+        <p>
+          Design highlights with visual experiments and various graphic
+          solutions.
         </p>
       </div>
     </div>
 
-    <div class="case-study-gallery">
-      {images.map((src, i) => (
-        <img src={src} alt={`Studio Antonucci — ${i + 2}`} loading="lazy" />
-      ))}
+    <div class="project-hero">
+      <video src="/images/work/02/02-06.mp4" autoplay loop muted playsinline
+      ></video>
     </div>
-  </article>
+  </div>
+
+  <!-- ── Gallery 2 ── -->
+  <div class="project-gallery">
+    <img src="/images/work/02/02-07.webp" alt="4AM — stickers" loading="lazy" />
+    <img src="/images/work/02/02-08.webp" alt="4AM — denim" loading="lazy" />
+    <img src="/images/work/02/02-09.gif" alt="4AM — denim" loading="lazy" />
+    <img src="/images/work/02/02-10.webp" alt="4AM — denim" loading="lazy" />
+  </div>
 </Base>
 
 <style>
-  .case-study { padding-top: 82px; }
-
-  .case-study-cover {
-    width: 100%;
-    max-height: 80vh;
-    overflow: hidden;
-  }
-  .case-study-hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  /* ── Page shell ── */
+  .project {
+    background: #000000;
+    color: #fff;
+    min-height: 100vh;
+    padding-top: 96px;
   }
 
-  .case-study-content {
-    padding: 56px 32px 64px;
-    max-width: 960px;
-    margin: 0 auto;
-  }
-  .case-study-header { margin-bottom: 48px; }
-  .case-study-num {
-    display: block;
-    color: var(--color-muted);
-    margin-bottom: 10px;
-  }
-  .case-study-title { margin-bottom: 20px; }
-  .case-study-meta {
-    display: flex;
-    gap: 16px;
-    color: var(--color-muted);
-    flex-wrap: wrap;
-  }
-  .case-study-body {
-    max-width: 640px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .case-study-gallery {
-    padding: 0 32px 80px;
-    max-width: 1200px;
-    margin: 0 auto;
+  /* ── Main grid ── */
+  .project-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 10px;
+    padding: 24px 24px 10px;
   }
-  .case-study-gallery img {
-    width: 100%;
-    height: auto;
-    display: block;
+
+  /* ── Cards column ── */
+  .project-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+  }
+
+  /* ── Base card ── */
+  .card {
+    border: 1.5px solid rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    padding: 14px 18px;
+  }
+
+  /* Tag pill — self-sizing */
+  .card--tag {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    padding: 8px 14px;
+  }
+  .card--tag span {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 1);
+  }
+
+  /* Spacer */
+  .spacer {
+    flex: 1;
+    min-height: 16px;
   }
 
   @media (max-width: 768px) {
-    .case-study-content { padding: 40px 24px 48px; }
-    .case-study-gallery { padding: 0 24px 60px; grid-template-columns: 1fr; }
-    .case-study-cover { max-height: 60vh; }
+    .spacer {
+      display: none;
+    }
   }
-  @media (max-width: 480px) {
-    .case-study-content { padding: 32px 16px 40px; }
-    .case-study-gallery { padding: 0 16px 48px; }
+
+  /* Title card */
+  .card--title {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 16px 18px;
+  }
+  .project-title {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.2vw, 28px);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    flex: 0 0 44%;
+    padding-right: 20px;
+  }
+  .project-subtitle {
+    flex: 1;
+    border-left: 1.5px solid rgba(255, 255, 255, 0.25);
+    padding-left: 20px;
+  }
+  .project-subtitle p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* Body text card */
+  .card--body p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 400;
+  }
+
+  /* Uppercase variant */
+  .card--upper p {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 1);
+  }
+
+  /* ── Hero image ── */
+  .project-hero {
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  .project-hero img {
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    object-fit: contain;
+    display: block;
+  }
+  .project-hero video {
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* ── Gallery ── */
+  .project-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px 24px 40px;
+  }
+  .project-gallery img,
+  .project-gallery video {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+  }
+  .project-item {
+    display: block;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  .project-item img,
+  .project-item video {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .gallery-full {
+    grid-column: 1 / -1;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+    .project-hero {
+      aspect-ratio: 4 / 3;
+    }
+  }
+  @media (max-width: 640px) {
+    .project {
+      padding-top: 88px;
+    }
+    .project-grid {
+      padding: 16px 16px 8px;
+      gap: 8px;
+    }
+    .project-gallery {
+      grid-template-columns: 1fr;
+      padding: 8px 16px 32px;
+    }
+    .gallery-full {
+      grid-column: auto;
+    }
+    .card--title {
+      flex-direction: column;
+      gap: 12px;
+    }
+    .project-subtitle {
+      border-left: none;
+      border-top: 1.5px solid rgba(255, 255, 255, 0.15);
+      padding-left: 0;
+      padding-top: 12px;
+    }
   }
 </style>

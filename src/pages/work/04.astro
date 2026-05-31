@@ -2,124 +2,338 @@
 import Base from "../../layouts/Base.astro";
 ---
 
-<Base title="3D Works" dark={true}>
-  <article class="case-study">
-    <div class="case-study-cover">
-      <img
-        src="/images/work/04/04-01.gif"
-        alt="3D Works"
-        class="case-study-hero-img"
-      />
-    </div>
+<Base title="3D Works" showFooter={false} dark={true}>
+  <article class="project">
+    <!-- ── Row 1: intestazione ── -->
+    <div class="project-grid">
+      <div class="project-cards">
+        <div class="card card--tag">
+          <span>Created using After Effects and Blender</span>
+        </div>
 
-    <div class="case-study-content">
-      <header class="case-study-header">
-        <span class="case-study-num body-sm">04</span>
-        <h1 class="case-study-title heading-lg">3D Works</h1>
-        <ul class="case-study-meta body-sm">
-          <li>3D</li>
-          <li>Animation</li>
-          <li>Blender</li>
-          <li>After Effects</li>
-          <li>2023</li>
-        </ul>
-      </header>
-      <div class="case-study-body">
-        <p class="body-lg">
-          Personal projects in 3D modeling, animation, and motion design
-          exploring forms, textures, and visual effects. Selected 3D and motion
-          pieces showcasing different techniques and styles, created using After
-          Effects and Blender.
-        </p>
+        <div class="card card--title">
+          <h1 class="project-title">3D Works</h1>
+          <div class="project-subtitle">
+            <p>
+              Personal projects in 3D modeling, animation, and motion design
+              exploring forms, textures, and visual effects.
+            </p>
+          </div>
+        </div>
+
+        <div class="card card--body">
+          <p>
+            A series of personal experiments using Blender and After Effects to
+            explore 3D modeling, texturing, lighting, and animation. Each piece
+            investigates a different formal problem — from organic surfaces to
+            typographic motion and product rendering.
+          </p>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="card card--tag">
+          <span>Digital Experiments</span>
+        </div>
+
+        <div class="card card--body card--upper">
+          <p>
+            Selected 3D and motion pieces showcasing different techniques and
+            styles.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-hero">
+        <video src="/images/work/04/04-01.mp4" autoplay loop muted playsinline
+        ></video>
       </div>
     </div>
 
-    <div class="case-study-gallery">
-      <img
-        src="/images/work/04/04-02.png"
-        alt="3D Works — detail"
-        loading="lazy"
-      />
+    <!-- ── Row 2: ping-pong ── -->
+    <div class="project-gallery">
+      <div class="video-wrap">
+        <video
+          class="slow-video"
+          src="/images/work/04/04-02.mp4"
+          autoplay
+          loop
+          muted
+          playsinline></video>
+      </div>
+      <div class="video-wrap">
+        <video
+          class="slow-video"
+          src="/images/work/04/04-03.mp4"
+          autoplay
+          loop
+          muted
+          playsinline></video>
+      </div>
+    </div>
+
+    <!-- ── Row 3: gif full width ── -->
+    <div class="gallery-full-row">
+      <img src="/images/work/04/04-04.gif" alt="3D Works — 4" loading="lazy" />
+    </div>
+
+    <!-- ── Row 4: tre video quasi quadrati ── -->
+    <div class="gallery-thirds">
+      <video src="/images/work/04/04-05.mp4" autoplay loop muted playsinline
+      ></video>
+      <video src="/images/work/04/04-06.mp4" autoplay loop muted playsinline
+      ></video>
+      <video src="/images/work/04/04-07.mp4" autoplay loop muted playsinline
+      ></video>
+    </div>
+
+    <!-- ── Row 5: 1/3 + 2/3 ── -->
+    <div class="gallery-asymmetric">
+      <video src="/images/work/04/04-08.mp4" autoplay loop muted playsinline
+      ></video>
+      <video src="/images/work/04/04-09.mp4" autoplay loop muted playsinline
+      ></video>
     </div>
   </article>
 </Base>
 
+<script>
+  function initSlowVideos() {
+    document
+      .querySelectorAll<HTMLVideoElement>("video.slow-video")
+      .forEach((v) => {
+        v.playbackRate = 0.75;
+        v.addEventListener("play", () => {
+          v.playbackRate = 0.75;
+        });
+      });
+  }
+
+  document.addEventListener("DOMContentLoaded", initSlowVideos);
+  document.addEventListener("astro:page-load", initSlowVideos);
+</script>
+
 <style>
-  .case-study {
-    padding-top: 82px;
-  }
-
-  .case-study-cover {
-    width: 100%;
-    max-height: 80vh;
-    overflow: hidden;
+  /* ── Page shell ── */
+  .project {
     background: #000;
-  }
-  .case-study-hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
+    color: #fff;
+    min-height: 100vh;
+    padding-top: 96px;
   }
 
-  .case-study-content {
-    padding: 56px 32px 64px;
-    max-width: 960px;
-    margin: 0 auto;
+  /* ── Row 1: grid ── */
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 24px 24px 10px;
   }
-  .case-study-header {
-    margin-bottom: 48px;
-  }
-  .case-study-num {
-    display: block;
-    color: var(--color-muted);
-    margin-bottom: 10px;
-  }
-  .case-study-title {
-    margin-bottom: 20px;
-  }
-  .case-study-meta {
-    display: flex;
-    gap: 16px;
-    color: var(--color-muted);
-    flex-wrap: wrap;
-  }
-  .case-study-body {
-    max-width: 640px;
+
+  .project-cards {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 8px;
+    height: 100%;
   }
 
-  .case-study-gallery {
-    padding: 0 32px 80px;
-    max-width: 1200px;
-    margin: 0 auto;
+  .card {
+    border: 1.5px solid rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    padding: 14px 18px;
   }
-  .case-study-gallery img {
+
+  .card--tag {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    padding: 8px 14px;
+  }
+  .card--tag span {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .spacer {
+    flex: 1;
+    min-height: 16px;
+  }
+
+  .card--title {
+    display: flex;
+    align-items: center;
+    padding: 16px 18px;
+  }
+  .project-title {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.2vw, 28px);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    flex: 0 0 44%;
+    padding-right: 20px;
+  }
+  .project-subtitle {
+    flex: 1;
+    border-left: 1.5px solid rgba(255, 255, 255, 0.25);
+    padding-left: 20px;
+  }
+  .project-subtitle p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .card--body p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .card--upper p {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    color: #fff;
+  }
+
+  .project-hero {
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  .project-hero video {
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    transform: scale(1.5);
+    object-fit: contain;
+    display: block;
+  }
+
+  /* ── Row 2: ping-pong (2 col) ── */
+  .project-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px 24px;
+  }
+  .project-gallery video {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  @media (max-width: 768px) {
-    .case-study-content {
-      padding: 40px 24px 48px;
+  .video-wrap {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .video-wrap::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 70%;
+    right: 0;
+    height: 44px;
+    background: #000;
+    pointer-events: none;
+  }
+
+  /* ── Row 3: gif full width ── */
+  .gallery-full-row {
+    padding: 10px 24px;
+  }
+  .gallery-full-row img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+  }
+
+  /* ── Row 4: tre colonne ── */
+  .gallery-thirds {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 10px 24px;
+  }
+  .gallery-thirds video {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+  }
+
+  /* ── Row 5: 1/3 + 2/3 ── */
+  .gallery-asymmetric {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-auto-rows: 380px;
+    gap: 10px;
+    padding: 10px 24px 48px;
+  }
+  .gallery-asymmetric video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .project-grid {
+      grid-template-columns: 1fr;
     }
-    .case-study-gallery {
-      padding: 0 24px 60px;
-    }
-    .case-study-cover {
-      max-height: 60vh;
+    .project-hero {
+      aspect-ratio: 4 / 3;
     }
   }
-  @media (max-width: 480px) {
-    .case-study-content {
-      padding: 32px 16px 40px;
+
+  @media (max-width: 640px) {
+    .project {
+      padding-top: 88px;
     }
-    .case-study-gallery {
-      padding: 0 16px 48px;
+
+    .project-grid {
+      padding: 16px 16px 8px;
+      gap: 8px;
+    }
+    .project-gallery,
+    .gallery-full-row,
+    .gallery-thirds,
+    .gallery-asymmetric {
+      padding: 8px 16px;
+    }
+    .gallery-thirds {
+      grid-template-columns: 1fr;
+    }
+    .gallery-asymmetric {
+      grid-template-columns: 1fr;
+      padding-bottom: 32px;
+    }
+    .card--title {
+      flex-direction: column;
+      gap: 12px;
+    }
+    .project-subtitle {
+      border-left: none;
+      border-top: 1.5px solid rgba(255, 255, 255, 0.15);
+      padding-left: 0;
+      padding-top: 12px;
+    }
+    .spacer {
+      display: none;
     }
   }
 </style>
