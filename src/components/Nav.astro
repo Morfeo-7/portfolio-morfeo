@@ -52,24 +52,28 @@ const links = [
     const menu = document.getElementById("mobile-menu") as HTMLDivElement;
     if (!hamburger || !menu) return;
 
+    // Clone and replace to remove any old event listeners (prevents duplicates)
+    const freshHamburger = hamburger.cloneNode(true) as HTMLButtonElement;
+    hamburger.replaceWith(freshHamburger);
+
     function close() {
       menu.classList.remove("open");
-      hamburger.classList.remove("open");
-      hamburger.setAttribute("aria-expanded", "false");
+      freshHamburger.classList.remove("open");
+      freshHamburger.setAttribute("aria-expanded", "false");
     }
 
-    hamburger.addEventListener("click", () => {
+    freshHamburger.addEventListener("click", () => {
       const opening = !menu.classList.contains("open");
       menu.classList.toggle("open");
-      hamburger.classList.toggle("open");
-      hamburger.setAttribute("aria-expanded", String(opening));
+      freshHamburger.classList.toggle("open");
+      freshHamburger.setAttribute("aria-expanded", String(opening));
     });
 
     menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", close));
     document.addEventListener("keydown", (e) => e.key === "Escape" && close());
   }
 
-  document.addEventListener("DOMContentLoaded", initNav);
+  // astro:page-load fires on BOTH initial load and after client-side navigation
   document.addEventListener("astro:page-load", initNav);
 </script>
 
