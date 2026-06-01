@@ -1,0 +1,276 @@
+---
+import Base from "../../layouts/Base.astro";
+---
+
+<Base title="Short Films / AI Experiments" showFooter={false} dark={true}>
+  <article class="project">
+    <!-- ── Row 1: Header and Hero Video ── -->
+    <div class="project-grid">
+      <div class="project-cards">
+        <div class="card card--tag">
+          <span>SHORT FILMS / AI EXPERIMENTS</span>
+        </div>
+
+        <div class="card card--title">
+          <h1 class="project-title">Short Films & AI Experiments</h1>
+          <div class="project-subtitle">
+            <p>
+              This section presents a series of short films created as part of
+              the thesis project, together with additional independent footage
+              reworked through artificial intelligence tools. Through image,
+              sound, editing, and visual experimentation, the videos explore the
+              mind as an unstable and fragmented space.
+            </p>
+          </div>
+        </div>
+
+        <div class="card card--body">
+          <p>
+            The short films act as a practical extension of the research,
+            investigating perception, identity, memory, and the distortion of
+            reality. Some of the footage, although not directly connected to the
+            main thesis project, was later transformed using AI tools in order
+            to experiment with new visual possibilities and demonstrate a
+            contemporary approach to digital image-making.
+          </p>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="card card--tag">
+          <span>Hybrid Archive</span>
+        </div>
+
+        <div class="card card--body card--upper">
+          <p>
+            The result is a hybrid visual archive where cinema, editing, and
+            artificial intelligence interact, showing the project’s ability to
+            move between narrative, artistic research, and technological
+            experimentation.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-hero">
+        <video src="/images/work/05/05-01.mp4" autoplay loop muted playsinline
+        ></video>
+      </div>
+    </div>
+
+    <!-- ── Row 2: Gallery of 2 Videos ── -->
+    <div class="project-gallery">
+      <div class="video-wrap">
+        <video src="/images/work/05/05-02.mp4" autoplay loop muted playsinline
+        ></video>
+      </div>
+      <div class="video-wrap">
+        <video src="/images/work/05/05-03.mp4" autoplay loop muted playsinline
+        ></video>
+      </div>
+    </div>
+
+    <!-- ── Row 3: Asymmetric layout for last 2 videos ── -->
+    <div class="gallery-asymmetric">
+      <video src="/images/work/05/05-04.mp4" autoplay loop muted playsinline
+      ></video>
+      <video src="/images/work/05/05-05.mp4" autoplay loop muted playsinline
+      ></video>
+    </div>
+  </article>
+</Base>
+
+<style>
+  /* ── Page shell ── */
+  .project {
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+    padding-top: 96px;
+  }
+
+  /* ── Row 1: grid ── */
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 24px 24px 10px;
+  }
+
+  .project-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+  }
+
+  .card {
+    border: 1.5px solid rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    padding: 14px 18px;
+  }
+
+  .card--tag {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    padding: 8px 14px;
+  }
+  .card--tag span {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .spacer {
+    flex: 1;
+    min-height: 16px;
+  }
+
+  .card--title {
+    display: flex;
+    align-items: center;
+    padding: 16px 18px;
+  }
+  .project-title {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.2vw, 28px);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    flex: 0 0 44%;
+    padding-right: 20px;
+  }
+  .project-subtitle {
+    flex: 1;
+    border-left: 1.5px solid rgba(255, 255, 255, 0.25);
+    padding-left: 20px;
+  }
+  .project-subtitle p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .card--body p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .card--upper p {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    color: #fff;
+  }
+
+  .project-hero {
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1.5px solid rgba(255, 255, 255, 1);
+    background: #000;
+  }
+  .project-hero video {
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* ── Row 2: Gallery of 2 videos ── */
+  .project-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 10px 24px;
+  }
+  .project-gallery video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .video-wrap {
+    position: relative;
+    border: 1.5px solid rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .video-wrap video {
+    object-fit: contain;
+    max-height: 600px;
+  }
+
+  /* ── Row 3: Asymmetric layout ── */
+  .gallery-asymmetric {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-auto-rows: 380px;
+    gap: 20px;
+    padding: 10px 24px 48px;
+  }
+  .gallery-asymmetric video {
+    width: 100%;
+    border: 1.5px solid rgba(255, 255, 255, 1);
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 20px;
+    background: #000;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+    .project-hero {
+      aspect-ratio: 4 / 3;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .project {
+      padding-top: 88px;
+    }
+
+    .project-grid {
+      padding: 16px 16px 8px;
+      gap: 8px;
+    }
+    .project-gallery,
+    .gallery-asymmetric {
+      padding: 8px 16px;
+    }
+    .project-gallery {
+      grid-template-columns: 1fr;
+    }
+    .gallery-asymmetric {
+      grid-template-columns: 1fr;
+      padding-bottom: 32px;
+    }
+    .card--title {
+      flex-direction: column;
+      gap: 12px;
+    }
+    .project-subtitle {
+      border-left: none;
+      border-top: 1.5px solid rgba(255, 255, 255, 0.15);
+      padding-left: 0;
+      padding-top: 12px;
+    }
+    .spacer {
+      display: none;
+    }
+  }
+</style>
