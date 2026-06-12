@@ -87,7 +87,7 @@ const media = [
         media.map((item, i) =>
           item.type === "video" ? (
             <div class="archive-item">
-              <video src={item.src} autoplay loop muted playsinline />
+              <video src={item.src} autoplay loop muted playsinline preload="none" />
             </div>
           ) : (
             <div class="archive-item">
